@@ -81,7 +81,7 @@ class ShapeCollector{
     }
 
     public void addFigure(Shape shape){
-//        this.shape.getShapeName();
+        this.shape.getShapeName();
 
         figure.add(shape.getShapeName());
 
@@ -107,8 +107,8 @@ class ShapeCollector{
 
     public String showFigures(){
         String allFiguresDescription="";
-        for (String lista : figure){
-            allFiguresDescription+= lista;
+        for (String lista : this.figure){
+            allFiguresDescription+= lista + " ";
             System.out.println(lista);
 
         }
