@@ -45,13 +45,13 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void getFigure() {
+    public void TestGetFigure() {
         Shape square = new square();
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
 
-        Shape theFigure;
-        theFigure = shapeCollector.shape;
+        String theFigure;
+        theFigure = shapeCollector.shape.getShapeName();
 
         Assert.assertEquals(theFigure, shapeCollector.getFigure(0));
     }

@@ -81,7 +81,7 @@ class ShapeCollector{
     }
 
     public void addFigure(Shape shape){
-        //shape.getShapeName();
+        shape.getShapeName();
 
         figure.add(shape.getShapeName());
 
@@ -89,7 +89,7 @@ class ShapeCollector{
 
     public boolean removeFigure(Shape shape) {
         boolean result = false;
-        this.shape.getShapeName();
+        //this.shape.getShapeName();
         if (figure.contains(shape.getShapeName())) {
             figure.remove(shape.getShapeName());
             result = true;
@@ -98,6 +98,7 @@ class ShapeCollector{
     }
 
     public String getFigure(int n){
+
         String theFigure = null;
         if (n >= 0 && n <= figure.size()){
             theFigure = figure.get(n);
