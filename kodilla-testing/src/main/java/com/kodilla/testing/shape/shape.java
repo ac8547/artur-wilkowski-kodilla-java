@@ -65,9 +65,9 @@ class ShapeCollector{
     Shape shape;
     private ArrayList<String> figure = new ArrayList<String>();
 
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
+    //public ShapeCollector(Shape shape) {
+    //    this.shape = shape;
+    //}
 
     public Shape getShape() {
         return shape;
@@ -81,7 +81,7 @@ class ShapeCollector{
     }
 
     public void addFigure(Shape shape){
-        this.shape.getShapeName();
+        //shape.getShapeName();
 
         figure.add(shape.getShapeName());
 
