@@ -16,8 +16,14 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testCompile ('junit:junit:4.12')
+	testCompile('org.mockito:mockito-all:1.10.19')
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+
+		// https://mvnrepository.com/artifact/org.mockito/mockito-all
+		testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+
 	}
 }
 

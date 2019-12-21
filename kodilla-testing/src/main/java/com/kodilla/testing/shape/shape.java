@@ -81,7 +81,7 @@ class ShapeCollector{
     }
 
     public void addFigure(Shape shape){
-        shape.getShapeName();
+//        this.shape.getShapeName();
 
         figure.add(shape.getShapeName());
 
@@ -106,15 +106,30 @@ class ShapeCollector{
         return theFigure;
     }
 
-    public String showFigures(){
+    public String[] showFigures(){
+        String[] result = new String[10];
+
+        for (int i = 0; i< figure.size(); i++){
+            result[i] = figure.get(i);
+            if (result[i] == "circle"){
+//                result[i] = figure.get(i) +" " + shape.getField(2);
+
+            }
+        }
+        return result;
+
+
+        /*
         String allFiguresDescription="";
         for (String lista : this.figure){
-            allFiguresDescription+= lista + " ";
+            allFiguresDescription+= lista + "\n";
             System.out.println(lista);
 
         }
         return allFiguresDescription;
 
+
+         */
     }
 
 

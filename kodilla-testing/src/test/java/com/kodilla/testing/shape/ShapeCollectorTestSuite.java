@@ -50,10 +50,10 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
 
-        String theFigure;
-        theFigure = shapeCollector.shape.getShapeName();
+       // String theFigure;
+       // theFigure = shapeCollector.shape.getShapeName();
 
-        Assert.assertEquals(theFigure, shapeCollector.getFigure(0));
+        Assert.assertEquals("square", shapeCollector.getFigure(0));
     }
 
     @Test
@@ -69,9 +69,9 @@ public class ShapeCollectorTestSuite {
         Shape triangle = new triangle();
         shapeCollector.addFigure(triangle);
 
-        shapeCollector.showFigures();
+        String[] theFigure = shapeCollector.showFigures();
 
-        //Assert.assertEquals("circle",shapeCollector.showFigures());
+        Assert.assertEquals("circle",theFigure[0]);
 
 
 
