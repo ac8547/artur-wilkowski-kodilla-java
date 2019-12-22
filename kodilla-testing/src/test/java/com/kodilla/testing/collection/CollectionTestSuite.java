@@ -24,14 +24,9 @@ public class CollectionTestSuite {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         ArrayList<Integer> oddList = new ArrayList<Integer>();
-        oddList.add(5);
-        oddList.add(7);
 
-        oddNumbersExterminator.exterminate(oddList);
-        if (oddNumbersExterminator.evenList.isEmpty()){
-            System.out.println("the list is empty");
-            }else
-            System.out.println("not empty");
+        Assert.assertEquals(0,oddNumbersExterminator.exterminate(oddList).size());
+
     }
 
     @Test
@@ -44,14 +39,7 @@ public class CollectionTestSuite {
         listOfNumbers.add(5);
         listOfNumbers.add(12);
 
-        oddNumbersExterminator.exterminate(listOfNumbers);
-
-        for (int i=0; i<oddNumbersExterminator.evenList.size(); i++){
-            Assert.assertTrue("false: ", oddNumbersExterminator.evenList.get(i) % 2  == 0);
-
-        }
+        Assert.assertEquals(3, oddNumbersExterminator.exterminate(listOfNumbers).size() );
     }
-
-
 }
 

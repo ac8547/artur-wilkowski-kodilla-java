@@ -7,147 +7,156 @@ import java.util.Objects;
 interface Shape {
 
     String getShapeName();
-    int getField();
+    double getField();
 }
 
+class circle implements Shape {
+    double radius;
 
-class triangle implements Shape{
+    String shapeName = "circle";
+    double field = (radius * radius) * Math.PI;
 
-    public String getShapeName(){
-        return "triangle";
+    public circle(double radius) {
+        this.radius = radius;
     }
 
     @Override
-    public int getField() {
-        return 0;
-    }
-
-    public int getField(int a, int h){
-        return (a * h)/2;
-    }
-}
-
-class square implements Shape{
-
-    public String getShapeName(){
-        return "square";
+    public String getShapeName() {//zwraca nazwe figury
+        return shapeName;
     }
 
     @Override
-    public int getField() {
-        return 0;
-    }
-
-    public int getField(int a) {
-        return a^2;
-    }
-
-}
-
-class circle implements Shape{
-
-    public String getShapeName(){
-        return "circle";
-    }
-
-    @Override
-    public int getField() {
-        return 0;
-    }
-
-    public int getField(int r){
-        return (int) (3.14) * r^2;
-    }
-}
-
-class ShapeCollector{
-
-    Shape shape;
-    private ArrayList<String> figure = new ArrayList<String>();
-
-    //public ShapeCollector(Shape shape) {
-    //    this.shape = shape;
-    //}
-
-    public Shape getShape() {
-        return shape;
-    }
-
-    @Override
-    public String toString() {
-        return "ShapeCollector{" +
-                "shape=" + shape +
-                '}';
-    }
-
-    public void addFigure(Shape shape){
-//        this.shape.getShapeName();
-
-        figure.add(shape.getShapeName());
-
-    }
-
-    public boolean removeFigure(Shape shape) {
-        boolean result = false;
-        //this.shape.getShapeName();
-        if (figure.contains(shape.getShapeName())) {
-            figure.remove(shape.getShapeName());
-            result = true;
-        }
-        return result;
-    }
-
-    public String getFigure(int n){
-
-        String theFigure = null;
-        if (n >= 0 && n <= figure.size()){
-            theFigure = figure.get(n);
-        }
-        return theFigure;
-    }
-
-    public String[] showFigures(){
-        String[] result = new String[10];
-
-        for (int i = 0; i< figure.size(); i++){
-            result[i] = figure.get(i);
-            if (result[i] == "circle"){
-//                result[i] = figure.get(i) +" " + shape.getField(2);
-
-            }
-        }
-        return result;
-
-
-        /*
-        String allFiguresDescription="";
-        for (String lista : this.figure){
-            allFiguresDescription+= lista + "\n";
-            System.out.println(lista);
-
-        }
-        return allFiguresDescription;
-
-
-         */
-    }
-
-
-    public int getListQuantity(){
-        return figure.size();
+    public double getField() {//zwraca obliczone pole figury
+        return field;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ShapeCollector)) return false;
-        ShapeCollector that = (ShapeCollector) o;
-        return shape.equals(that.shape) &&
-                figure.equals(that.figure);
+        if (!(o instanceof circle)) return false;
+        circle circle = (circle) o;
+        return Double.compare(circle.radius, radius) == 0 &&
+                Double.compare(circle.getField(), getField()) == 0 &&
+                getShapeName().equals(circle.getShapeName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shape, figure);
+        return Objects.hash(radius, getShapeName(), getField());
+    }
+}
+
+class square implements Shape {
+    double side;
+
+    String shapeName = "square";
+    double field = side * side;
+
+    public square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public String getShapeName() {
+        return shapeName;
+    }
+
+    @Override
+    public double getField() {
+        return field;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof square)) return false;
+        square square = (square) o;
+        return Double.compare(square.side, side) == 0 &&
+                Double.compare(square.getField(), getField()) == 0 &&
+                getShapeName().equals(square.getShapeName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(side, getShapeName(), getField());
+    }
+}
+
+class triangle implements Shape {
+
+    double base;
+    double height;
+
+    String shapeName = "triangle";
+    double field = (base * height) / 2;
+
+    public triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public String getShapeName() {
+        return shapeName;
+    }
+
+    @Override
+    public double getField() {
+        return field;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof triangle)) return false;
+        triangle triangle = (triangle) o;
+        return Double.compare(triangle.base, base) == 0 &&
+                Double.compare(triangle.height, height) == 0 &&
+                Double.compare(triangle.getField(), getField()) == 0 &&
+                getShapeName().equals(triangle.getShapeName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(base, height, getShapeName(), getField());
+    }
+}
+
+class ShapeCollector {
+
+    private ArrayList<Shape> FigureCollection = new ArrayList<>();
+
+    public ArrayList<Shape> getFiguresCollection() {
+        return FigureCollection;
+    }
+
+    public void addFigure(Shape shape){
+        FigureCollection.add(shape);
+    }
+
+    public boolean removeFigure(Shape shape){
+        return FigureCollection.remove(shape);
+    }
+
+    public Shape getFigure(int n){
+        if(n<FigureCollection.size() && n>=0){
+            return FigureCollection.get(n);
+        } else {
+            return null;
+        }
+    }
+
+    public void showFigures(){
+        System.out.println(FigureCollection.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "ShapeCollector{" +
+                "FigureCollection=" + FigureCollection +
+                '}';
+
+
+
     }
 }
