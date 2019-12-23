@@ -1,8 +1,11 @@
 package com.kodilla.testing.collection;
 
-import com.kodilla.testing.collection.OddNumbersExterminator;
-import org.junit.*;
-import java.util.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class CollectionTestSuite {
 
@@ -13,33 +16,36 @@ public class CollectionTestSuite {
     }
 
     @After
-    public void after(){
+    public void after() {
         System.out.println("Test Case: end");
     }
 
 
     @Test
-    public void testOddNumbersExterminatorEmptyList(){
+    public void testOddNumbersExterminatorEmptyList() {
 
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         ArrayList<Integer> oddList = new ArrayList<Integer>();
 
-        Assert.assertEquals(0,oddNumbersExterminator.exterminate(oddList).size());
+        Assert.assertEquals(0, oddNumbersExterminator.exterminate(oddList).size());
 
     }
 
     @Test
-    public void testOddNumbersExterminatorNormalList(){
+    public void testOddNumbersExterminatorNormalList() {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
-        ArrayList<Integer> listOfNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> listOfNumbers = new ArrayList<>();
         listOfNumbers.add(10);
         listOfNumbers.add(6);
         listOfNumbers.add(5);
         listOfNumbers.add(12);
 
-        Assert.assertEquals(3, oddNumbersExterminator.exterminate(listOfNumbers).size() );
+        for (int i = 0; i < oddNumbersExterminator.exterminate(listOfNumbers).size(); i++) {
+            Assert.assertTrue("false: ", oddNumbersExterminator.exterminate(listOfNumbers).get(i) % 2 == 0);
+        }
+
     }
 }
 
