@@ -1,7 +1,7 @@
 package com.kodilla.testing.library;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.text.html.parser.Entity;
+import java.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,4 +23,12 @@ public class BookLibrary {
         bookList = resultList;
         return bookList;
     }
+
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        return resultList;
+    }
+
+
+
 }

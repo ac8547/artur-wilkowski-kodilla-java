@@ -12,7 +12,7 @@ public class OddNumbersExterminator {
             if (evenNumber % 2 == 0) {
                 evenList.add(evenNumber);
             }
-            System.out.println(evenList);
+            //System.out.println(evenList);
 
         }
         return evenList;
