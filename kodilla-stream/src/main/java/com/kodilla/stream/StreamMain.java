@@ -21,7 +21,16 @@ public class StreamMain {
         System.out.println("Welcome to module 7 - Stream");
 
 
-    //Zadanie: funkcyjny spacer po liście użytkowników forum
+
+        // Zadanie: Upiększacz tekstów
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        poemBeautifier.beautify("test string", (string) -> string.toUpperCase());
+        poemBeautifier.beautify("test string", (string) -> "*****" + string + "*****");
+        poemBeautifier.beautify("test string", (string) -> "+++++++" + string + "++++++++");
+
+
+
+        //Zadanie: funkcyjny spacer po liście użytkowników forum
 
         Forum forum = new Forum();
 
@@ -51,19 +60,7 @@ public class StreamMain {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+       ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
         System.out.println("Calculating expressions with lambdas");
         expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
@@ -77,11 +74,6 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-        // zadanie
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("test string", (string) -> string.toUpperCase());
-        poemBeautifier.beautify("test string", (string) -> "*****" + string + "*****");
-        poemBeautifier.beautify("test string", (string) -> "+++++++" + string + "++++++++");
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
